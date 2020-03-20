@@ -5,7 +5,9 @@ exports.run = (client, message, args, ops) => {
     if (fetched.queue.length <= 0)
         return message.channel.send('Queue is already empty.');
 
-    fetched.queue = [];
+    let activeSong = fetched.queue[0];
+
+    fetched.queue = [activeSong];
 
     ops.active.set(message.guild.id, fetched);
 
