@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const opus = require('node-opus');
 const discordOpus = require('@discordjs/opus');
 
 const client = new Discord.Client();
