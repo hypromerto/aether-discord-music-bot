@@ -10,6 +10,6 @@ exports.run = (client, message, args, ops) => {
         let video = res.videos.slice(0, 1);
 
         let playFile = require('./play');
-        playFile.run(client, message, [0, video[0].url], ops);
+        playFile.run(client, message, [video[0].url], ops);
     });
 }

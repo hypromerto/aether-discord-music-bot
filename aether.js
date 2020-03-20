@@ -6,6 +6,7 @@ const client = new Discord.Client();
 const prefix = '/';
 const token = process.env.token;
 
+const playCommand = require('./commands/play');
 const leaveCommand = require('./commands/leave');
 const queueCommand = require('./commands/queue');
 const skipCommand = require('./commands/skip');
@@ -13,7 +14,6 @@ const pauseCommand = require('./commands/pause');
 const resumeCommand = require('./commands/resume');
 const clearqueueCommand = require('./commands/clearqueue');
 const volumeCommand = require('./commands/volume');
-const searchAndPlay = require('./commands/search');
 
 const active = new Map();
 
@@ -33,29 +33,32 @@ client.on('message', async message => {
 		active: active
 	}
 
-  	let args = message.content.split(" ");
-	if (args[0] === '/play')
-		searchAndPlay.run(client, message, args.slice(1), ops);
+	let commandType = message.content.split(" ")[0];
 
-	if (args[0] == '/queue')
+	let args = message.content.split(" ").slice(1);
+	  
+	if (commandType === '/play')
+		playCommand.run(client, message, args, ops);
+
+	if (commandType == '/queue')
 		queueCommand.run(client, message, args, ops);
 	
-	if(args[0] == '/leave')
+	if(commandType == '/leave')
 		leaveCommand.run(client, message, args, ops);
 
-	if(args[0] == '/skip')
+	if(commandType == '/skip')
 		skipCommand.run(client, message, args, ops);
 
-	if(args[0] == '/pause')
+	if(commandType == '/pause')
 		pauseCommand.run(client, message, args, ops);
 	
-	if(args[0] == '/resume')
+	if(commandType == '/resume')
 		resumeCommand.run(client, message, args, ops);
 
-	if(args[0] == '/clearqueue')
+	if(commandType == '/clearqueue')
 		clearqueueCommand.run(client, message, args, ops);
 
-	if(args[0] == '/volume')
+	if(commandType == '/volume')
 		volumeCommand.run(client, message, args, ops);
 		
 });

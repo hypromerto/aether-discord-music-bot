@@ -7,12 +7,16 @@ exports.run = async (client, message, args, ops) => {
 
     if (!args[0]) return message.channel.send('Please input a url.');
     
-    let validate = await ytdl.validateURL(args[1]);
+    let validate = await ytdl.validateURL(args[0]);
 
-    if (!validate)
-        return message.channel.send("Please input a valid url");
+    if (!validate){
 
-    let info = await ytdl.getInfo(args[1]);
+        let commandFile = require('./search');
+
+        commandFile.run(client, message, args, ops)
+    }
+
+    let info = await ytdl.getInfo(args[0]);
 
     let data = ops.active.get(message.guild.id) || {};
 
@@ -27,7 +31,7 @@ exports.run = async (client, message, args, ops) => {
     data.queue.push({
         songTitle: info.title,
         requester: message.author.tag,
-        url: args[1],
+        url: args[0],
         announceChannel: message.channel.id
     });
 
