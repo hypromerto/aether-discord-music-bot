@@ -53,7 +53,7 @@ async function play(client, ops, data){
 
     data.dispatcher.guildID = data.guildID;
 
-    data.dispatcher.once('finish', function() {
+    data.dispatcher.once('end', function() {
         finish(client, ops, this);
     });
 }
@@ -62,7 +62,11 @@ function finish(client, ops, dispatcher){
 
     let fetched = ops.active.get(dispatcher.guildID);
 
+    console.log("before + " + fetched);
+
     fetched.queue.shift();
+
+    console.log("after + " + fetched);
 
     if (fetched.queue.length > 0){
         ops.active.set(dispatcher.guildID, fetched);

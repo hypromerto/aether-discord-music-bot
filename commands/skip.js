@@ -10,5 +10,5 @@ exports.run = async (client, message, args, ops) => {
 
     message.channel.send('Skipping the current song...');
 
-    return fetched.dispatcher.emit('finish');
+    return fetched.dispatcher.emit('end');
 }

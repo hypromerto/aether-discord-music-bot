@@ -35,7 +35,6 @@ client.on('message', async message => {
 	let commandType = message.content.split(" ")[0];
 
 	let args = message.content.split(" ").slice(1);
-	console.log(args);
 	  
 	if (commandType === '/play')
 		playCommand.run(client, message, args, ops);
