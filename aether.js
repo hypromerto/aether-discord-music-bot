@@ -11,6 +11,7 @@ const queueCommand = require('./commands/queue');
 const skipCommand = require('./commands/skip');
 const pauseCommand = require('./commands/pause');
 const resumeCommand = require('./commands/resume');
+const clearqueueCommand = require('./commands/clearqueue');
 
 const active = new Map();
 
@@ -48,5 +49,8 @@ client.on('message', async message => {
 	
 	if(args[0] == '!resume')
 		resumeCommand.run(client, message, args, ops);
+
+	if(args[0] == '!clearqueue')
+		clearqueueCommand.run(client, message, args, ops);
 		
 });
