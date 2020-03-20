@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const prefix = '!';
+const token = process.env.token;
 const playCommand = require('./commands/play');
 const leaveCommand = require('./commands/leave');
 const queueCommand = require('./commands/queue');
@@ -11,7 +12,7 @@ const active = new Map();
 
 const ownerID = '231';
 
-client.login('NjkwMjg4MjgwMjcyNjMzOTY3.XnPPIQ.0DtgXHK7O1-q_82RrrdcwlfHMAw');
+client.login(token);
 
 client.on('message', async message => {
   	// Voice only works in guilds, if the message does not come from a guild,
