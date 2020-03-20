@@ -1,0 +1,30 @@
+{
+  "name": "aether",
+  "version": "1.0.0",
+  "description": "A discord music bot called Aether.",
+  "main": "aether.js",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "ffmpeg-binaries": "^4.0.0",
+    "minimist": "^1.2.5",
+    "node-gyp": "^5.0.0",
+    "node-opus": "^0.3.2",
+    "package-lock.json": "^1.0.0",
+    "ytdl-core": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hypromerto/aether_discord_music_bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hypromerto/aether_discord_music_bot/issues"
+  },
+  "homepage": "https://github.com/hypromerto/aether_discord_music_bot#readme"
+}
