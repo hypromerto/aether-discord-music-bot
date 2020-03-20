@@ -1,4 +1,6 @@
-const Discord = require('@discord.js/opus');
+const Discord = require('discord.js');
+const opus = require('node-opus');
+
 const client = new Discord.Client();
 
 const prefix = '!';
