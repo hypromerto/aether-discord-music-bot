@@ -13,7 +13,7 @@ exports.run = async (client, message, args, ops) => {
 
         let commandFile = require('./search');
 
-        commandFile.run(client, message, args, ops)
+        return commandFile.run(client, message, args, ops)
     }
 
     let info = await ytdl.getInfo(args[0]);
