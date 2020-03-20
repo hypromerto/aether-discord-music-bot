@@ -5,12 +5,13 @@ const prefix = '!';
 const playCommand = require('./commands/play');
 const leaveCommand = require('./commands/leave');
 const queueCommand = require('./commands/queue');
+const skipCommand = require('./commands/skip');
 
 const active = new Map();
 
-const ownerID = 'OWNER_ID';
+const ownerID = '231';
 
-client.login('YOUR_BOT_TOKEN_HERE');
+client.login('NjkwMjg4MjgwMjcyNjMzOTY3.XnPPIQ.0DtgXHK7O1-q_82RrrdcwlfHMAw');
 
 client.on('message', async message => {
   	// Voice only works in guilds, if the message does not come from a guild,
@@ -33,5 +34,8 @@ client.on('message', async message => {
 	
 	if(args[0] == '!leave')
 		leaveCommand.run(client, message, args, ops);
+
+	if(args[0] == '!skip')
+		skipCommand.run(client, message, args, ops);
 		
 });

@@ -7,7 +7,7 @@ exports.run = (client, message, args, ops) => {
         return message.channel.send('Bot is not connected to a guild.');
     
     if (message.guild.me.voiceChannelID !== message.member.voiceChannelID)
-        return message.channel.send('You aren\'t in the same channel with the bot');
+        return message.channel.send('You aren\'t in the same channel as the bot');
 
     message.guild.me.voiceChannel.leave();
 
