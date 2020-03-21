@@ -1,2 +1,2 @@
-# aether_discord_music_bot
-A discord music bot running on Heroku called Aether.
+# aether-discord-music-bot
+A Discord music bot running on Heroku called Aether.
