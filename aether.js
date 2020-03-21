@@ -13,6 +13,7 @@ const pauseCommand = require('./commands/pause');
 const resumeCommand = require('./commands/resume');
 const clearqueueCommand = require('./commands/clearqueue');
 const volumeCommand = require('./commands/volume');
+const helpCommand = require('./commands/help');
 
 const active = new Map();
 
@@ -59,5 +60,8 @@ client.on('message', async message => {
 
 	if(commandType == '/volume')
 		volumeCommand.run(client, message, args, ops);
+
+	if(commandType == '/help')
+		helpCommand.run(client, message, args, ops);
 		
 });
