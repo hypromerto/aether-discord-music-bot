@@ -2,7 +2,7 @@ const ytdl = require('ytdl-core');
 
 exports.run = async (client, message, args, ops) => {
 
-    if (!message.member.voiceChannel) 
+    if (!message.member.voice.channel) 
         return message.channel.send('You have to be in a voice channel to use this command.');
 
     if (!args[0]) return message.channel.send('Please input a url.');
@@ -21,7 +21,7 @@ exports.run = async (client, message, args, ops) => {
     let data = ops.active.get(message.guild.id) || {};
 
     if (!data.connection)
-        data.connection = await message.member.voiceChannel.join();
+        data.connection = await message.member.voice.channel.join();
     
     if (!data.queue)
         data.queue = [];
@@ -76,7 +76,7 @@ function finish(client, ops, dispatcher){
     else {
         ops.active.delete(dispatcher.guildID);
 
-        let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel;
+        let vc = client.guilds.get(dispatcher.guildID).me.voice.channel;
 
         if (vc) vc.leave();
     }

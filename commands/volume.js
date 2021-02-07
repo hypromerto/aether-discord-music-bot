@@ -5,7 +5,7 @@ exports.run = (client, message, args, ops) => {
     if (!fetched)
         return message.channel.send('No music is currently playing');
 
-    if (message.member.voiceChannel !== message.guild.me.voiceChannel)
+    if (message.member.voice.channel !== message.guild.me.voice.channel)
         return message.channel.send('You have to be in the same voice channel as the bot');
 
     if(isNaN(args[0]) || args[0] > 200 || args[0] < 0)
